@@ -107,26 +107,24 @@ template <typename T> int BST<T>::getcount() const {
 }
 
 template <typename T> void BST<T>::input(const string& file)
-{	
+ifstream fin(file);
 	try
 	{
-		ifstream fin(file);
-		if (!fin)
-			throw 1;
-		T temp;
-		fin >> count;
-		for (int i = 0; i < count; ++i)
+		int temp;
+		while (!fin.eof()) throw 1;
 		{
+
 			fin >> temp;
 			add(temp);
-			count--;
+
 		}
 		fin.close();
-		}
+	}
 	catch (int i)
 	{
-		std::cout << "File doesn't exist!\nError #1\n";
+		cout << "This file don't find" << endl;
 	}
+
 }
 
 template <typename T> void BST<T>::output(const string& file) const {
