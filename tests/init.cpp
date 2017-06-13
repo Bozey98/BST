@@ -1,7 +1,7 @@
 #include <BST.hpp> 
 #include <catch.hpp>
 #include <fstream>
-//#include "File1.txt"
+#include "File1.txt"
 
 
 SCENARIO ("init", "[init]")
