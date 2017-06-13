@@ -106,7 +106,7 @@ template <typename T> int BST<T>::getcount() const {
 	return count;
 }
 
-template <typename T> void BST<T>::input(const string& file)
+template <typename T> void BST<T>::input(const string& file) {
 ifstream fin(file);
 	try
 	{
