@@ -108,10 +108,9 @@ template <typename T> int BST<T>::getcount() const {
 
 template <typename T> void BST<T>::input(const string& file) {
 ifstream fin(file);
-	try
-	{
+	
 		int temp;
-		while (!fin.eof()) throw 1;
+		while (!fin.eof());
 		{
 
 			fin >> temp;
@@ -121,11 +120,7 @@ ifstream fin(file);
 		}
 		fin.close();
 	}
-	catch (int i)
-	{
-		cout << "This file don't find" << endl;
-	}
-
+	
 }
 
 template <typename T> void BST<T>::output(const string& file) const {
