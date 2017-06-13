@@ -21,13 +21,13 @@ public:
 	BST();
 	~BST();
 	void deleteTree(Node<T> *Tree);
-	void show(ostream&cout, Node<T> *Tree);
+	void show(ostream&cout, const Node<T> *Tree) const;
 	void add(const T&);
-	bool search(const T&, Node<T> *Tree);
-	void input(const string file);
-	void output(const string file);
+	bool search(const T&, Node<T> *Tree) const;
+	void input(const string file) const;
+	void output(const string file) const;
 	Node<T>* MinElement(Node<T>* min);
-	Node<T>* getroot();
+	Node<T>* getroot() const;
 	int getcount() const;
 	Node<T>* del(Node<T>* parent, Node<T>* current, const T& val);
 	bool delVal(const T& val);
@@ -61,7 +61,7 @@ template <typename T>void BST<T>::deleteTree(Node<T> *Tree) {
 }
 
 
-template <typename T> void BST<T>::show(ostream&cout, Node<T> *Tree) {
+template <typename T> void BST<T>::show(ostream&cout, const Node<T> *Tree) const{
 	if (Tree != NULL) {
 
 		cout << Tree->element << endl;;
@@ -98,7 +98,7 @@ template <typename T> void BST<T>::add(const T &x) {
 }
 
 
-template <typename T> Node<T>* BST<T>::getroot() {
+template <typename T> Node<T>* BST<T>::getroot() const {
 	return root;
 }
 
@@ -106,12 +106,12 @@ template <typename T> int BST<T>::getcount() const {
 	return count;
 }
 
-template <typename T> void BST<T>::input(const string file) {
+template <typename T> void BST<T>::input(const string& file) const {
 	ifstream fin(file);
 	try
 	{
 		int temp;
-		while (!fin.eof())
+		while (!fin.eof()) throw 1
 		{
 
 			fin >> temp;
@@ -127,13 +127,13 @@ template <typename T> void BST<T>::input(const string file) {
 
 }
 
-template <typename T> void BST<T>::output(const string file) {
+template <typename T> void BST<T>::output(const string& file) const {
 	ofstream fout(file);
 	show(fout, root);
 	fout.close();
 }
 
-template <typename T> bool BST<T>::search(const T&x, Node<T>* Tree) {
+template <typename T> bool BST<T>::search(const T&x, Node<T>* Tree) const {
 	if (Tree == nullptr)
 		return false;
 	if (x == Tree->element) {
