@@ -1,8 +1,8 @@
-#include <BST.hpp>
+#include <BST.hpp> 
 #include <catch.hpp>
 #include <fstream>
 
-SCENARION ("test1","[test1]");
+SCENARION ("test1", "[test1]")
 {
 	BST<int> test;
 	test.input("File1.txt");
