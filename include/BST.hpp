@@ -111,7 +111,7 @@ template <typename T> void BST<T>::input(const string& file) const {
 	try
 	{
 		int temp;
-		while (!fin.eof()) throw 1
+		while (!fin.eof()) throw 1;
 		{
 
 			fin >> temp;
