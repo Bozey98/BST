@@ -121,7 +121,7 @@ ifstream fin(file);
 		fin.close();
 	}
 	
-}
+
 
 template <typename T> void BST<T>::output(const string& file) const {
 	ofstream fout(file);
