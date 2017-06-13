@@ -2,13 +2,6 @@
 #include <catch.hpp>
 #include <fstream>
 
-SCENARION ("test1", "[test1]")
-{
-	BST<int> test;
-	test.input("File1.txt");
-	REQUIRE(test.getcount() == 3);
-	
-}
 
 SCENARIO ("init", "[init]")
 
@@ -62,8 +55,17 @@ SCENARIO("get root", "[init]")
 }
 
 
+SCENARIO ("test1", "[init]")
+{
+	BST<int> test;
+	test.input("File1.txt");
+	REQUIRE(test.getcount() == 3);
+	
+}
 
-/*SCENARIO("del", "[init]")
+
+
+SCENARIO("del", "[init]")
 
 {
 
@@ -84,7 +86,7 @@ SCENARIO("get root", "[init]")
 
   REQUIRE(test.search(3, test.getroot())!= 0);
 
-}*/
+}
 	
 
 
