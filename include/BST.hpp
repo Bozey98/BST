@@ -35,10 +35,6 @@ public:
 
 };
 
-int main() {
-
-}
-
 
 template <typename T> BST<T>::BST() {
 	root = NULL;
