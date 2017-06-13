@@ -22,7 +22,7 @@ public:
 	~BST();
 	void deleteTree(Node<T> *Tree);
 	void show(ostream&cout, const Node<T> *Tree) const;
-	void add(const T&);
+	void add(const T&) const;
 	bool search(const T&, Node<T> *Tree) const;
 	void input(const string& file) const;
 	void output(const string& file) const;
@@ -71,7 +71,7 @@ template <typename T> void BST<T>::show(ostream&cout, const Node<T> *Tree) const
 	}
 }
 
-template <typename T> void BST<T>::add(const T &x) {
+template <typename T> void BST<T>::add(const T &x) const{
 	Node<T>* daughter = new Node<T>;
 	daughter->element = x;
 	daughter->left = daughter->right = nullptr;
