@@ -63,7 +63,7 @@ SCENARIO ("test1", "[init]")
 	
 }
 
-
+/*
 
 SCENARIO("del", "[init]")
 
@@ -88,6 +88,6 @@ SCENARIO("del", "[init]")
 
 }
 	
-
+*/
 
 
