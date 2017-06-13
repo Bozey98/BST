@@ -1,7 +1,6 @@
 #include <BST.hpp> 
 #include <catch.hpp>
 #include <fstream>
-#include "File1.txt"
 
 
 SCENARIO ("init", "[init]")
@@ -59,7 +58,10 @@ SCENARIO("get root", "[init]")
 SCENARIO ("test1", "[init]")
 {
 	BST<int> test;
-	test.input("File1.txt");
+	ofstream testfile("testfile.txt");
+	testfile << "6 1 9";
+	testfile.close();
+	test.input("testfile.txt");
 	REQUIRE(test.getcount() == 3);
 	
 }
