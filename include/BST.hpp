@@ -110,7 +110,7 @@ template <typename T> void BST<T>::input(const string& file) {
 ifstream fin(file);
 	
 		T temp;
-		while (!fin.eof());
+		while (!fin.eof())
 		{
 
 			fin >> temp;
