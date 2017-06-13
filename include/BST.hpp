@@ -116,7 +116,7 @@ ifstream fin(file);
 
 			fin >> temp;
 			add(temp);
-			count++;
+			
 
 		}
 		fin.close();
