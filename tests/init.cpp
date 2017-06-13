@@ -2,6 +2,14 @@
 #include <catch.hpp>
 #include <fstream>
 
+SCENARION ("test1","[test1]");
+{
+	BST<int> test;
+	test.input("File1.txt");
+	REQUIRE(test.getcount() == 3);
+	
+}
+
 SCENARIO ("init", "[init]")
 
 {
