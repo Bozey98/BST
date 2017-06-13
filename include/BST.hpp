@@ -24,7 +24,7 @@ public:
 	void show(ostream&cout, const Node<T> *Tree) const;
 	void add(const T&);
 	bool search(const T&, Node<T> *Tree) const;
-	void input(const string& file) const;
+	void input(const string& file);
 	void output(const string& file) const;
 	Node<T>* MinElement(Node<T>* min);
 	Node<T>* getroot() const;
