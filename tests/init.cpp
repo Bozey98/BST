@@ -59,7 +59,7 @@ SCENARIO ("test1", "[init]")
 {
 	BST<int> test;
 	ofstream testfile("testfile.txt");
-	testfile << "2 1 9";
+	testfile << "2 1 9 5";
 	testfile.close();
 	test.input("testfile.txt");
 	REQUIRE(test.getcount() == 3);
