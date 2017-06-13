@@ -58,9 +58,7 @@ SCENARIO("get root", "[init]")
 SCENARIO ("test1", "[init]")
 {
 	BST<int> test;
-	test.add(1);
-	test.add(2);
-	test.add(3);
+	test.input("File1.txt"):
 	REQUIRE(test.getcount() == 3);
 	
 }
