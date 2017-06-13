@@ -19,6 +19,8 @@ private:
 	int count;
 public:
 	BST();
+	~BST();
+	void deleteTree(Node<T> *Tree);
 	void show(ostream&cout, Node<T> *Tree);
 	void add(const T&);
 	bool search(const T&, Node<T> *Tree);
@@ -27,16 +29,41 @@ public:
 	Node<T>* MinElement(Node<T>* min);
 	Node<T>* getroot();
 	int getcount() const;
-	Node<T>* del(Node<T> *Tree, T el);
+	Node<T>* del(Node<T>* parent, Node<T>* current, const T& val);
+	bool delVal(const T& val);
 
 
 };
+
+int main() {
+
+}
 
 
 template <typename T> BST<T>::BST() {
 	root = NULL;
 	count = 0;
 }
+
+template <typename T> BST<T>::~BST() {
+	deleteTree(root);
+}
+
+template <typename T>void BST<T>::deleteTree(Node<T> *Tree) {
+	if (!Tree)
+		return;
+	if (Tree->left) {
+		deleteTree(Tree->left);
+		Tree->left = nullptr;
+	}
+
+	if (Tree->right) {
+		deleteTree(Tree->right);
+		Tree->right = nullptr;
+	}
+	delete Tree;
+}
+
 
 template <typename T> void BST<T>::show(ostream&cout, Node<T> *Tree) {
 	if (Tree != NULL) {
@@ -131,21 +158,63 @@ template <typename T> Node<T>* BST<T>::MinElement(Node<T>* min) {
 
 }
 
+template <typename T>
+Node<T>* BST<T>::del(Node<T>* parent, Node<T>* current, const T& val)
+{
+	if (!current) return false;
+
+	if (current->element == val)
+	{
+		if (current->left == NULL || current->right == NULL)
+		{
+			Node<T>* temp = current->left;
+			if (current->right) temp = current->right;
+			if (parent)
+			{
+				if (parent->left == current)
+				{
+					parent->left = temp;
+				}
+				else
+				{
+					parent->right = temp;
+				}
+			}
+			else
+			{
+				this->root = temp;
+			}
+		}
+
+		else
+		{
+			Node<T>* validSubs = current->right;
+			while (validSubs->left)
+			{
+				validSubs = validSubs->left;
+			}
+			T temp = current->element;
+			current->element = validSubs->element;
+			validSubs->element = temp;
+			return del(current, current->right, temp);
+
+		}
+		delete current;
+		count--;
+		return true;
+	}
+
+	if (current->element > val)
+
+		return del(current, current->left, val);
+
+	else
+
+		return del(current, current->right, val);
+}
 
 
-/*template <typename T>
-Node<T>* BST<T>::del(Node<T> *Tree, T el) {
-	if (Tree == nullptr) return Tree;
-	if (el < Tree->element) Tree->left = del(Tree->left, el);
-	else if (el > Tree->element) Tree->right = del(Tree->right, el);
-	else if ((Tree->left != nullptr) && (Tree->right != nullptr)) {
-		Tree->element = MinElement(Tree->right)->element;
-		Tree->right = del(Tree->right, Tree->element);
-	}
-	else {
-		if (Tree->left != nullptr) Tree = Tree->left;
-		else Tree = Tree->right;
-	}
-	count--;
-	return Tree;
-}*/
+template <typename T>
+bool BST<T>::delVal(const T& val) {
+	return this->del(NULL, root, val);
+}
