@@ -108,15 +108,13 @@ template <typename T> int BST<T>::getcount() const {
 
 template <typename T> void BST<T>::input(const string& file) {	
 	ifstream fin(file);
+	T temp;
+	if (!fin)
+	{
+		fin >> temp;
+		add(temp);
 
-		
-		if (fin)
-		{
-			T temp;
-			fin >> temp;
-			add(temp);
-
-		}
+	}
 		fin.close();
 	}
 	
