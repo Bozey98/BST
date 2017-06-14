@@ -118,6 +118,7 @@ template <typename T> void BST<T>::input(const string& file) {
 
 		}
 		fin.close();
+	count--
 	}
 	
 
